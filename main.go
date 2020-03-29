@@ -13,10 +13,9 @@ import (
 
 func main() {
 	dao.Init()
-	// 初始化mysql
 	service.Init()
-
 	api.Init()
+
 	SpringLogger.SetLogger(&SpringLogger.Console{})
 	SpringBoot.RunApplication("config/")
 }
