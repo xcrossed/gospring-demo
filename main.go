@@ -15,9 +15,11 @@ func main() {
 	dao.Init()
 	service.Init()
 	api.Init()
+
 	level := SpringLogger.InfoLevel
 	console := &SpringLogger.Console{}
 	console.SetLevel(level)
 	SpringLogger.SetLogger(console)
+
 	SpringBoot.RunApplication("config/")
 }
