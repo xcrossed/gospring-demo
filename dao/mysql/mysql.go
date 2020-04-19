@@ -40,10 +40,6 @@ func NewMySqlClient(conf config.MySQLDataSourceConf) (*sqlx.DB, error) {
 		SpringLogger.Errorf("open mysql err:%v", err)
 		return nil, err
 	}
-	err = db.Ping()
-	if err != nil {
-		return nil, err
-	}
 	name := "unknown"
 	if cfg, err := mysql.ParseDSN(conf.Dsn); err == nil {
 		name = fmt.Sprintf("%s/%s", cfg.Addr, cfg.DBName)
