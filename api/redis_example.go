@@ -6,6 +6,7 @@ import (
 
 	"github.com/xcrossed/gospring-demo/service"
 
+	SpringLogger "github.com/go-spring/go-spring-parent/spring-logger"
 	SpringWeb "github.com/go-spring/go-spring-web/spring-web"
 )
 
@@ -15,7 +16,12 @@ type MyRedisController struct {
 
 func (c *MyRedisController) Get(ctx SpringWeb.WebContext) {
 	key := ctx.QueryParam("key")
-	val, _ := c.MyRedisService.Get(key)
+	val, err := c.MyRedisService.Get(key)
+	if err != nil {
+		SpringLogger.Errorf("MyRedisService.Get(%v) error: %v", key, err)
+		ctx.String(http.StatusInternalServerError, fmt.Sprintf("error,get return :%v", err))
+		return
+	}
 	ctx.String(http.StatusOK, fmt.Sprintf("OK,get return :%v", val))
 }
 

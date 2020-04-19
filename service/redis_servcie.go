@@ -13,7 +13,7 @@ type MyRedisService struct {
 
 func (s *MyRedisService) Get(key string) (string, error) {
 	val := s.RedisClient.Get(key)
-	if err := val.Err(); err != nil {
+	if err := val.Err(); err != nil && err != redis.Nil {
 		SpringLogger.Errorf("get key:%s, err:%v", key, err)
 		return "", err
 	}
@@ -21,7 +21,7 @@ func (s *MyRedisService) Get(key string) (string, error) {
 }
 
 func (s *MyRedisService) Set(key, val string) error {
-	err := s.RedisClient.Set(key, val, time.Duration(5)*time.Second).Err()
+	err := s.RedisClient.Set(key, val, time.Duration(1000)*time.Second).Err()
 	if err != nil {
 		SpringLogger.Errorf("set key:%s, err:%v", key, err)
 		return err

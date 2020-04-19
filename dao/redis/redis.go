@@ -1,9 +1,9 @@
 package redis
 
 import (
-	"github.com/xcrossed/gospring-demo/config"
-
+	SpringLogger "github.com/go-spring/go-spring-parent/spring-logger"
 	SpringBoot "github.com/go-spring/go-spring/spring-boot"
+	"github.com/xcrossed/gospring-demo/config"
 	"gopkg.in/redis.v5"
 )
 
@@ -20,7 +20,9 @@ func NewGoRedisClient(config config.RedisDataSourceConf) (redis.Cmdable, error) 
 		DB:       config.Db,
 	})
 	if err := client.Ping().Err(); err != nil {
+		SpringLogger.Errorf("redis connect failed: %s", err)
 		return nil, err
 	}
+	SpringLogger.Infof("connect to redis [%v] success", config.Addr)
 	return client, nil
 }

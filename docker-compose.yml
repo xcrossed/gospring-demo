@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  mysql:
+    image: mysql:5.7
+    restart: always
+    environment:
+      TZ: Asia/Shanghai
+      MYSQL_USER: gospring
+      MYSQL_PASSWORD: gospring
+      MYSQL_ROOT_PASSWORD: gospring
+      MYSQL_DATABASE: go_spring_demo
+    volumes:
+      - ./env/sql:/docker-entrypoint-initdb.d
+    ports:
+      - "3316:3306"
+  redis:
+    image: redis:latest
+    ports:
+      - 6389:6379
+    restart: always
+    command: redis-server --requirepass 123456  --appendonly yes

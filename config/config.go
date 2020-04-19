@@ -6,10 +6,11 @@ type WebServerConf struct {
 }
 
 type MySQLDataSourceConf struct {
-	Dsn                string `value:"${mysql.datasource.dsn}"`
-	MaxOpenConnections int    `value:"${mysql.datasource.maxOpenConnections}"`
-	MaxIdleConnections int    `value:"${mysql.datasource.maxIdleConnections}"`
-	MaxLifeTime        int    `value:"${mysql.datasource.maxLifeTime}"`
+	Driver             string `value:"${db.datasource.driver}"`
+	Dsn                string `value:"${db.datasource.dsn}"`
+	MaxOpenConnections int    `value:"${db.datasource.maxOpenConnections}"`
+	MaxIdleConnections int    `value:"${db.datasource.maxIdleConnections}"`
+	MaxLifeTimeSeconds int    `value:"${db.datasource.maxLifeTimeSeconds}"`
 }
 
 type RedisDataSourceConf struct {

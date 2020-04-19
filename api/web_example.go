@@ -14,8 +14,7 @@ type MyController struct {
 }
 
 func (c *MyController) Home(ctx SpringWeb.WebContext) {
-	bizRet := c.MyWebService.Biz()
-	ctx.String(http.StatusOK, fmt.Sprintf("OK,Biz return :%s", bizRet))
+	ctx.String(http.StatusOK, fmt.Sprintf("hello world."))
 }
 
 func (c *MyController) Echo(ctx SpringWeb.WebContext) {
