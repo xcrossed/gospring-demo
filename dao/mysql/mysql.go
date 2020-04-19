@@ -44,7 +44,7 @@ func NewMySqlClient(conf config.MySQLDataSourceConf) (*sqlx.DB, error) {
 	if err != nil {
 		return nil, err
 	}
-	name := "unknown>"
+	name := "unknown"
 	if cfg, err := mysql.ParseDSN(conf.Dsn); err == nil {
 		name = fmt.Sprintf("%s/%s", cfg.Addr, cfg.DBName)
 	}
