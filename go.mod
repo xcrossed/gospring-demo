@@ -8,7 +8,7 @@ require (
 	github.com/go-spring/go-spring v1.0.2
 	github.com/go-spring/go-spring-parent v1.0.2
 	github.com/go-spring/go-spring-web v1.0.2
-	github.com/go-sql-driver/mysql v1.4.1
+	github.com/go-sql-driver/mysql v1.5.0
 	github.com/gomodule/redigo v2.0.0+incompatible // indirect
 	github.com/jmoiron/sqlx v1.2.0
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
