@@ -4,7 +4,7 @@ build:
 stop:
 	docker-compose down
 
-pepare: stop
+prepare: stop
 	docker-compose up --build
 
 clean:

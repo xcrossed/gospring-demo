@@ -7,12 +7,18 @@
 * 支持mysql
 
 ## 启动方法
-* 先make prepare启动本地docker mysql
+* make prepare
 * go run main.go
 
 ## 效果
 * 打开浏览器输入http://127.0.0.1:8000查看
 * 示例完成了redis,mysql的操作
+
+
+
+
+
+
 
 
 
